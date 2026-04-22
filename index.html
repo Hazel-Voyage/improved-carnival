@@ -1,287 +1,243 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; -webkit-text-stroke: #000000; min-height: 18.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计师专属导航 | Apple极简iOS风</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Microsoft YaHei", sans-serif;
+        }
+        :root {
+            --bg-color: #f5f5f7;
+            --card-bg: rgba(255, 255, 255, 0.72);
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --border-color: rgba(255, 255, 255, 0.8);
+            --hover-bg: rgba(230, 230, 235, 0.8);
+            --accent-blue: #007aff;
+            --blur: blur(20px);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --card-bg: rgba(30, 30, 30, 0.72);
+                --text-primary: #f5f5f7;
+                --text-secondary: #86868b;
+                --border-color: rgba(60, 60, 60, 0.5);
+                --hover-bg: rgba(50, 50, 55, 0.8);
+            }
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            padding: 40px 20px;
+            line-height: 1.5;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+        .site-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .site-title {
+            font-size: 36px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .site-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+        .category-group {
+            margin-bottom: 32px;
+        }
+        .category-card {
+            background: var(--card-bg);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 24px;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        .category-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .category-title i {
+            color: var(--accent-blue);
+            font-size: 18px;
+        }
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+        }
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 15px;
+            transition: background-color 0.2s ease;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .link-item:hover {
+            background-color: var(--hover-bg);
+        }
+        .link-item i {
+            color: var(--accent-blue);
+            font-size: 14px;
+            width: 16px;
+            text-align: center;
+        }
+        @media (max-width: 640px) {
+            .link-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+            .site-title {
+                font-size: 28px;
+            }
+            body {
+                padding: 24px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="zh-CN"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;设计师专属导航 | Apple极简iOS风&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- 引入苹果官方图标 --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 全局重置 &amp; Apple官网基础样式 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Microsoft YaHei", sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>:root {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>/* Apple浅色主题（官网原生配色） */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--bg-color: #f5f5f7;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--card-bg: rgba(255, 255, 255, 0.72);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--text-primary: #1d1d1f;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--text-secondary: #86868b;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--border-color: rgba(255, 255, 255, 0.8);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--hover-bg: rgba(230, 230, 235, 0.8);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--accent-blue: #007aff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--blur: blur(20px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Apple深色模式自动适配 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@media (prefers-color-scheme: dark) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>:root {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>--bg-color: #121212;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>--card-bg: rgba(30, 30, 30, 0.72);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>--text-primary: #f5f5f7;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>--text-secondary: #86868b;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>--border-color: rgba(60, 60, 60, 0.5);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>--hover-bg: rgba(50, 50, 55, 0.8);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: var(--bg-color);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--text-primary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 40px 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 1.5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: background-color 0.3s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 980px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 顶部标题（Apple官网大标题样式） */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.site-header {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 48px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.site-title {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 36px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: -0.5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.site-desc {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--text-secondary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 分类卡片容器 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.category-group {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 32px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* iOS毛玻璃卡片（完全复刻Apple官网样式） */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.category-card {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: var(--card-bg);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>backdrop-filter: var(--blur);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-webkit-backdrop-filter: var(--blur);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid var(--border-color);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 18px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 24px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.category-card:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 分类标题 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.category-title {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.category-title i {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--accent-blue);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 18px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 链接列表网格布局 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.link-grid {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: grid;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* iOS风格链接按钮 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.link-item {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 12px 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--text-primary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 15px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: background-color 0.2s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-overflow: ellipsis;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: nowrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.link-item:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: var(--hover-bg);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.link-item i {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--accent-blue);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 移动端适配 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@media (max-width: 640px) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.link-grid {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.site-title {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>font-size: 28px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>padding: 24px 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- 顶部标题 --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;header class="site-header"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h1 class="site-title"&gt;设计师专属导航&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p class="site-desc"&gt;我的常用素材·工具·学习资源合集 | Apple iOS简约风格&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 1.素材网站（完全对应你的截图） ========== --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="category-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="category-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="category-title"&gt;&lt;i class="fa-solid fa-folder-open"&gt;&lt;/i&gt;素材网站&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="link-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;免费图片&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;Free Vectors, Stock Ph...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;iconfont-阿里巴巴矢量...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;免费正版高清图片素材库...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;千图网&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;免费的轻量级动画&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;VCG.视觉中国&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 2.字体网站 ========== --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="category-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="category-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="category-title"&gt;&lt;i class="fa-solid fa-font"&gt;&lt;/i&gt;字体网站&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="link-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;文悦字库&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-b"&gt;&lt;/i&gt;字魂网&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;SHEJIDT-字体&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;字体识别&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-t"&gt;&lt;/i&gt;免费可商用字体&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;字体天下&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;造字工房&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;免费字体下载大全，可...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 3.辅助工具 ========== --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="category-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="category-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="category-title"&gt;&lt;i class="fa-solid fa-wrench"&gt;&lt;/i&gt;辅助工具&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="link-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;文件转换器 - FreeConve...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-database"&gt;&lt;/i&gt;大数据导航-大数据工具...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;福昕翻译&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;设计类英文术语专业版-1...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;调色生成&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-star"&gt;&lt;/i&gt;设计导航 - 精选最好的...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;登录 — 零点云网址:ccbb...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;上海市五险一金及税后...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-heart"&gt;&lt;/i&gt;iLovePDF | 为PDF爱好...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;在线色号色彩查询&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-brands fa-git-alt"&gt;&lt;/i&gt;GitCode - 全球开发者的...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;4A广告圈常用的250个...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 4.视频网站 ========== --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="category-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="category-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="category-title"&gt;&lt;i class="fa-solid fa-video"&gt;&lt;/i&gt;视频网站&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="link-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;Girls美剧小站 - 资源直...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;光厂(VJ师网)-正版视频...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;茶杯狐 Cupfox - 努力让...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;可可影视_最新Netflix新...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-brands fa-youtube"&gt;&lt;/i&gt;YouTube&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 5.图书网站 ========== --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="category-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="category-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="category-title"&gt;&lt;i class="fa-solid fa-book"&gt;&lt;/i&gt;图书网站&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="link-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;Z-Library - 世界上最大...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;爱下电子书epub&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;盗墓笔记&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;第1話 那年夏天寧靜的海...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 6.案例网站 ========== --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="category-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="category-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="category-title"&gt;&lt;i class="fa-solid fa-lightbulb"&gt;&lt;/i&gt;案例网站&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="link-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-s"&gt;&lt;/i&gt;SocialBeta | 社交媒体和...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-gem"&gt;&lt;/i&gt;平面设计灵感 | 创意人士...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-a"&gt;&lt;/i&gt;ArtStation-学习&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;LOFTER (乐乎)&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;站酷ZCOOL&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;数英网-广告市场营销服...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-brands fa-pinterest"&gt;&lt;/i&gt;Pinterest&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;站酷海洛&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-flower"&gt;&lt;/i&gt;花瓣&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 7.样机 ========== --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="category-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="category-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="category-title"&gt;&lt;i class="fa-solid fa-box"&gt;&lt;/i&gt;样机&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="link-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;样机&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;西田样机 - 海量高质量M...&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 8.学习 ========== --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="category-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="category-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="category-title"&gt;&lt;i class="fa-solid fa-graduation-cap"&gt;&lt;/i&gt;学习&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="link-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;虎课网-学习软件&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="link-item"&gt;&lt;i class="fa-solid fa-globe"&gt;&lt;/i&gt;优设网&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+    <div class="container">
+        <header class="site-header">
+            <h1 class="site-title">设计师专属导航</h1>
+            <p class="site-desc">我的常用素材·工具·学习资源合集 | Apple iOS简约风格</p>
+        </header>
+
+        <div class="category-group">
+            <div class="category-card">
+                <h2 class="category-title"><i class="fa-solid fa-folder-open"></i>素材网站</h2>
+                <div class="link-grid">
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>免费图片</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>Free Vectors, Stock Photos</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>iconfont 阿里巴巴矢量图标</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>免费正版高清图片素材库</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>千图网</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>免费的轻量级动画</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>VCG.视觉中国</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-group">
+            <div class="category-card">
+                <h2 class="category-title"><i class="fa-solid fa-font"></i>字体网站</h2>
+                <div class="link-grid">
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>文悦字库</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-b"></i>字魂网</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>SHEJIDT-字体</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>字体识别</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-t"></i>免费可商用字体</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>字体天下</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>造字工房</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-group">
+            <div class="category-card">
+                <h2 class="category-title"><i class="fa-solid fa-wrench"></i>辅助工具</h2>
+                <div class="link-grid">
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>文件转换器</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-database"></i>大数据导航</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>福昕翻译</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>设计类英文术语</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>调色生成</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-star"></i>设计导航</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-heart"></i>iLovePDF</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>在线色号色彩查询</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-group">
+            <div class="category-card">
+                <h2 class="category-title"><i class="fa-solid fa-video"></i>视频网站</h2>
+                <div class="link-grid">
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>Girls美剧小站</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>光厂(VJ师网)</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>茶杯狐 Cupfox</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>可可影视</a>
+                    <a href="#" class="link-item"><i class="fa-brands fa-youtube"></i>YouTube</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-group">
+            <div class="category-card">
+                <h2 class="category-title"><i class="fa-solid fa-book"></i>图书网站</h2>
+                <div class="link-grid">
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>Z-Library</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>爱下电子书epub</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>盗墓笔记</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-group">
+            <div class="category-card">
+                <h2 class="category-title"><i class="fa-solid fa-lightbulb"></i>案例网站</h2>
+                <div class="link-grid">
+                    <a href="#" class="link-item"><i class="fa-solid fa-s"></i>SocialBeta</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-gem"></i>平面设计灵感</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-a"></i>ArtStation-学习</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>LOFTER (乐乎)</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>站酷ZCOOL</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>数英网</a>
+                    <a href="#" class="link-item"><i class="fa-brands fa-pinterest"></i>Pinterest</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-flower"></i>花瓣</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-group">
+            <div class="category-card">
+                <h2 class="category-title"><i class="fa-solid fa-box"></i>样机</h2>
+                <div class="link-grid">
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>样机</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>西田样机</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-group">
+            <div class="category-card">
+                <h2 class="category-title"><i class="fa-solid fa-graduation-cap"></i>学习</h2>
+                <div class="link-grid">
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>虎课网-学习软件</a>
+                    <a href="#" class="link-item"><i class="fa-solid fa-globe"></i>优设网</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
