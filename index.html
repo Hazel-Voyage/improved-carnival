@@ -12,37 +12,9 @@
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Microsoft YaHei", sans-serif;
         }
-        :root {
-            --bg-color: #f5f5f7;
-            --card-bg: #ffffff;
-            --text-title: #1d1d1f;
-            --text-content: #424245;
-            --text-secondary: #86868b;
-            --border-color: #e8e8ed;
-            --hover-bg: #f2f2f7;
-            --accent-blue: #007aff;
-            --card-radius: 20px;
-            --item-radius: 12px;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.08);
-            --transition: all 0.28s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #101012;
-                --card-bg: #1c1c1e;
-                --text-title: #f5f5f7;
-                --text-content: #e0e0e0;
-                --border-color: #323238;
-                --hover-bg: #2c2c30;
-            }
-        }
         body {
-            background-color: var(--bg-color);
-            color: var(--text-content);
+            background-color: #f9fafb;
             padding: 60px 24px;
-            line-height: 1.45;
-            transition: var(--transition);
         }
         .container {
             max-width: 1080px;
@@ -50,228 +22,246 @@
         }
         .site-header {
             text-align: center;
-            margin-bottom: 64px;
+            margin-bottom: 60px;
         }
         .site-title {
             font-size: 42px;
             font-weight: 600;
-            letter-spacing: -0.6px;
-            color: var(--text-title);
-            margin-bottom: 12px;
+            color: #111827;
+            margin-bottom: 8px;
         }
         .site-desc {
             font-size: 17px;
-            color: var(--text-secondary);
-            font-weight: 400;
+            color: #6b7280;
         }
         .category-group {
-            margin-bottom: 36px;
+            margin-bottom: 32px;
         }
         .category-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--card-radius);
+            border-radius: 20px;
             padding: 32px;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.04);
         }
         .category-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
         .category-title {
             font-size: 22px;
             font-weight: 600;
-            color: var(--text-title);
             margin-bottom: 24px;
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        .category-title i {
-            color: var(--accent-blue);
-            font-size: 20px;
-        }
         .link-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 14px;
         }
         .link-item {
             display: flex;
             align-items: center;
             gap: 12px;
             padding: 14px 18px;
-            border-radius: var(--item-radius);
+            border-radius: 12px;
             text-decoration: none;
-            color: var(--text-content);
             font-size: 16px;
-            transition: var(--transition);
+            transition: 0.2s;
+            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            white-space: nowrap;
-            cursor: pointer;
         }
         .link-item:hover {
-            background-color: var(--hover-bg);
-            color: var(--text-title);
+            background: rgba(255,255,255,0.35);
         }
-        /* 图标大小统一精致 不再粗大难看 */
         .link-item i {
-            color: var(--accent-blue);
             font-size: 16px;
             width: 18px;
             text-align: center;
         }
-        @media (max-width: 640px) {
-            .link-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            }
-            .site-title {
-                font-size: 34px;
-            }
-            body {
-                padding: 40px 16px;
-            }
-            .category-card {
-                padding: 24px;
-            }
+
+        /* 每个分类 自定义颜色 */
+        .cat1 { background:#e0f2fe; color:#0369a1; }
+        .cat1 .link-item { color:#0369a1; }
+        .cat1 .link-item i { color:#0369a1; }
+
+        .cat2 { background:#f0f9ff; color:#0e7490; }
+        .cat2 .link-item { color:#0e7490; }
+        .cat2 .link-item i { color:#0e7490; }
+
+        .cat3 { background:#fdf4ff; color:#a21caf; }
+        .cat3 .link-item { color:#a21caf; }
+        .cat3 .link-item i { color:#a21caf; }
+
+        .cat4 { background:#f0fdf4; color:#0f766e; }
+        .cat4 .link-item { color:#0f766e; }
+        .cat4 .link-item i { color:#0f766e; }
+
+        .cat5 { background:#fffbeb; color:#b45309; }
+        .cat5 .link-item { color:#b45309; }
+        .cat5 .link-item i { color:#b45309; }
+
+        .cat6 { background:#fef2f2; color:#be123c; }
+        .cat6 .link-item { color:#be123c; }
+        .cat6 .link-item i { color:#be123c; }
+
+        .cat7 { background:#f5f3ff; color:#6d28d9; }
+        .cat7 .link-item { color:#6d28d9; }
+        .cat7 .link-item i { color:#6d28d9; }
+
+        .cat8 { background:#ecfeff; color:#155e75; }
+        .cat8 .link-item { color:#155e75; }
+        .cat8 .link-item i { color:#155e75; }
+
+        .cat9 { background:#f8fafc; color:#1e293b; }
+        .cat9 .link-item { color:#1e293b; }
+        .cat9 .link-item i { color:#1e293b; }
+
+        @media (max-width:640px) {
+            .link-grid { grid-template-columns: 1fr; }
+            .site-title { font-size:32px; }
+            .category-card { padding:24px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="site-header">
-            <h1 class="site-title">设计嘉年华</h1>
-            <p class="site-desc">常用案例·素材·工具资源合集</p>
-        </header>
 
-        <!-- 素材网站 → 全部换成图片/素材图标 去掉地球 -->
-        <div class="category-group">
-            <div class="category-card">
-                <h2 class="category-title"><i class="fa-solid fa-images"></i>素材网站</h2>
-                <div class="link-grid">
-                    <a href="https://unsplash.com/s/photos/white-wall" target="_blank" class="link-item"><i class="fa-solid fa-image"></i>免费图片</a>
-                    <a href="https://www.freepik.com" target="_blank" class="link-item"><i class="fa-solid fa-vector-square"></i>Free Vectors, Stock Photos</a>
-                    <a href="https://www.iconfont.cn" target="_blank" class="link-item"><i class="fa-solid fa-icons"></i>iconfont 阿里巴巴矢量图标</a>
-                    <a href="https://pixabay.com/zh/" target="_blank" class="link-item"><i class="fa-solid fa-photo-film"></i>免费正版高清图片素材库</a>
-                    <a href="https://www.58pic.com" target="_blank" class="link-item"><i class="fa-solid fa-palette"></i>千图网</a>
-                    <a href="https://lottiefiles.com" target="_blank" class="link-item"><i class="fa-solid fa-film"></i>免费的轻量级动画</a>
-                    <a href="https://www.vcg.com" target="_blank" class="link-item"><i class="fa-solid fa-camera"></i>VCG.视觉中国</a>
-                </div>
-            </div>
-        </div>
+<div class="container">
+    <header class="site-header">
+        <h1 class="site-title">设计嘉年华</h1>
+        <p class="site-desc">常用案例·素材·工具资源合集</p>
+    </header>
 
-        <!-- 智能体AI → 机器人图标 去掉地球 -->
-        <div class="category-group">
-            <div class="category-card">
-                <h2 class="category-title"><i class="fa-solid fa-robot"></i>智能体</h2>
-                <div class="link-grid">
-                    <a href="https://www.doubao.com/chat" target="_blank" class="link-item"><i class="fa-solid fa-robot"></i>豆包</a>
-                    <a href="https://www.lovart.ai/zh/home?ls=1" target="_blank" class="link-item"><i class="fa-solid fa-wand-magic-sparkles"></i>Lovart</a>
-                    <a href="https://chatgpt.com/c/f966519d-de70-4b75-99d0-ce8cd451dcdb" target="_blank" class="link-item"><i class="fa-solid fa-brain"></i>chatgpt</a>
-                    <a href="https://jimeng.jianying.com/ai-tool/home" target="_blank" class="link-item"><i class="fa-solid fa-wand-magic"></i>即梦</a>
-                    <a href="https://chat.deepseek.com/sign_in" target="_blank" class="link-item"><i class="fa-solid fa-brain-circuit"></i>deepseek</a>
-                    <a href="https://www.midjourney.com/explore?tab=video_top" target="_blank" class="link-item"><i class="fa-solid fa-image-portrait"></i>Mj</a>
-                    <a href="https://www.liblibai.com" target="_blank" class="link-item"><i class="fa-solid fa-microchip"></i>LiblibAI</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 字体网站 → 字体专属图标 去掉地球 -->
-        <div class="category-group">
-            <div class="category-card">
-                <h2 class="category-title"><i class="fa-solid fa-font"></i>字体网站</h2>
-                <div class="link-grid">
-                    <a href="https://wenyue.cn" target="_blank" class="link-item"><i class="fa-solid fa-text-height"></i>文悦字库</a>
-                    <a href="https://izihun.com" target="_blank" class="link-item"><i class="fa-solid fa-b"></i>字魂网</a>
-                    <a href="https://www.shejidt.com" target="_blank" class="link-item"><i class="fa-solid fa-font-awesome"></i>SHEJIDT-字体</a>
-                    <a href="https://www.souziti.com" target="_blank" class="link-item"><i class="fa-solid fa-magnifying-glass-chart"></i>字体识别</a>
-                    <a href="https://font.doany.cn" target="_blank" class="link-item"><i class="fa-solid fa-certificate"></i>免费可商用字体</a>
-                    <a href="https://www.fonts.net.cn" target="_blank" class="link-item"><i class="fa-solid fa-typewriter"></i>字体天下</a>
-                    <a href="https://www.maoken.com/all-fonts" target="_blank" class="link-item"><i class="fa-solid fa-italic"></i>猫啃网</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 辅助工具 → 工具图标 去掉地球 -->
-        <div class="category-group">
-            <div class="category-card">
-                <h2 class="category-title"><i class="fa-solid fa-wrench"></i>辅助工具</h2>
-                <div class="link-grid">
-                    <a href="https://www.freeconvert.com/zh" target="_blank" class="link-item"><i class="fa-solid fa-exchange-alt"></i>文件转换器</a>
-                    <a href="http://hao.199it.com" target="_blank" class="link-item"><i class="fa-solid fa-database"></i>大数据导航</a>
-                    <a href="https://fanyi.pdf365.cn/?agent=zhihu" target="_blank" class="link-item"><i class="fa-solid fa-language"></i>福昕翻译</a>
-                    <a href="https://zhuanlan.zhihu.com/p/106521744" target="_blank" class="link-item"><i class="fa-solid fa-book-open"></i>设计类英文术语</a>
-                    <a href="https://coolors.co" target="_blank" class="link-item"><i class="fa-solid fa-palette"></i>调色生成</a>
-                    <a href="https://hao.shejidaren.com/index.html" target="_blank" class="link-item"><i class="fa-solid fa-star"></i>设计导航</a>
-                    <a href="https://www.ilovepdf.com/zh-cn" target="_blank" class="link-item"><i class="fa-solid fa-file-pdf"></i>iLovePDF</a>
-                    <a href="https://www.qtccolor.com/secaiku/" target="_blank" class="link-item"><i class="fa-solid fa-droplet"></i>在线色号色彩查询</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 视频相关 → 视频图标 去掉地球 -->
-        <div class="category-group">
-            <div class="category-card">
-                <h2 class="category-title"><i class="fa-solid fa-video"></i>视频相关</h2>
-                <div class="link-grid">
-                    <a href="https://www.vjshi.com" target="_blank" class="link-item"><i class="fa-solid fa-video"></i>光厂(VJ师网)</a>
-                    <a href="https://cupfox.love" target="_blank" class="link-item"><i class="fa-solid fa-play"></i>茶杯狐 Cupfox</a>
-                    <a href="https://www.keke1.app" target="_blank" class="link-item"><i class="fa-solid fa-tv"></i>可可影视</a>
-                    <a href="https://www.youtube.com" target="_blank" class="link-item"><i class="fa-brands fa-youtube"></i>YouTube</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 图书网站 → 书本图标 去掉地球 -->
-        <div class="category-group">
-            <div class="category-card">
-                <h2 class="category-title"><i class="fa-solid fa-book"></i>图书网站</h2>
-                <div class="link-grid">
-                    <a href="https://zh.z-library.sk" target="_blank" class="link-item"><i class="fa-solid fa-book-open-reader"></i>Z-Library</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 案例网站 → 灵感创意图标 去掉地球 -->
-        <div class="category-group">
-            <div class="category-card">
-                <h2 class="category-title"><i class="fa-solid fa-lightbulb"></i>案例网站</h2>
-                <div class="link-grid">
-                    <a href="https://socialbeta.com" target="_blank" class="link-item"><i class="fa-solid fa-newspaper"></i>SocialBeta</a>
-                    <a href="https://theinspirationgrid.com/category/design/" target="_blank" class="link-item"><i class="fa-solid fa-gem"></i>平面设计灵感</a>
-                    <a href="https://www.artstation.com/learning" target="_blank" class="link-item"><i class="fa-solid fa-paintbrush"></i>ArtStation-学习</a>
-                    <a href="https://www.lofter.com/front/login" target="_blank" class="link-item"><i class="fa-solid fa-paint-roller"></i>LOFTER (乐乎)</a>
-                    <a href="https://www.zcool.com.cn/discover" target="_blank" class="link-item"><i class="fa-solid fa-vector-square"></i>站酷ZCOOL</a>
-                    <a href="https://www.digitaling.com" target="_blank" class="link-item"><i class="fa-solid fa-bullhorn"></i>数英网</a>
-                    <a href="https://www.pinterest.com" target="_blank" class="link-item"><i class="fa-brands fa-pinterest"></i>Pinterest</a>
-                    <a href="https://huaban.com/follow" target="_blank" class="link-item"><i class="fa-solid fa-flower"></i>花瓣</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 样机 → 模型样机图标 去掉地球 -->
-        <div class="category-group">
-            <div class="category-card">
-                <h2 class="category-title"><i class="fa-solid fa-box"></i>样机</h2>
-                <div class="link-grid">
-                    <a href="https://www.minimalmockups.com" target="_blank" class="link-item"><i class="fa-solid fa-mobile-screen-button"></i>样机</a>
-                    <a href="https://mockup.sitapix.com" target="_blank" class="link-item"><i class="fa-solid fa-laptop"></i>西田样机</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 学习 → 学习毕业图标 去掉地球 -->
-        <div class="category-group">
-            <div class="category-card">
-                <h2 class="category-title"><i class="fa-solid fa-graduation-cap"></i>学习</h2>
-                <div class="link-grid">
-                    <a href="https://huke88.com" target="_blank" class="link-item"><i class="fa-solid fa-school"></i>虎课网-学习软件</a>
-                    <a href="https://www.uisdc.com" target="_blank" class="link-item"><i class="fa-solid fa-book-open"></i>优设网</a>
-                </div>
+    <!-- 素材网站 -->
+    <div class="category-group">
+        <div class="category-card cat1">
+            <h2 class="category-title"><i class="fa-solid fa-images"></i>素材网站</h2>
+            <div class="link-grid">
+                <a href="https://unsplash.com/s/photos/white-wall" target="_blank" class="link-item"><i class="fa-solid fa-image"></i>免费图片</a>
+                <a href="https://www.freepik.com" target="_blank" class="link-item"><i class="fa-solid fa-vector-square"></i>Free Vectors, Stock Photos</a>
+                <a href="https://www.iconfont.cn" target="_blank" class="link-item"><i class="fa-solid fa-icons"></i>iconfont 阿里巴巴矢量图标</a>
+                <a href="https://pixabay.com/zh/" target="_blank" class="link-item"><i class="fa-solid fa-photo-film"></i>免费正版高清图片素材库</a>
+                <a href="https://www.58pic.com" target="_blank" class="link-item"><i class="fa-solid fa-palette"></i>千图网</a>
+                <a href="https://lottiefiles.com" target="_blank" class="link-item"><i class="fa-solid fa-film"></i>免费的轻量级动画</a>
+                <a href="https://www.vcg.com" target="_blank" class="link-item"><i class="fa-solid fa-camera"></i>VCG.视觉中国</a>
             </div>
         </div>
     </div>
+
+    <!-- 智能体 -->
+    <div class="category-group">
+        <div class="category-card cat2">
+            <h2 class="category-title"><i class="fa-solid fa-robot"></i>智能体</h2>
+            <div class="link-grid">
+                <a href="https://www.doubao.com/chat" target="_blank" class="link-item"><i class="fa-solid fa-robot"></i>豆包</a>
+                <a href="https://www.lovart.ai/zh/home?ls=1" target="_blank" class="link-item"><i class="fa-solid fa-wand-magic-sparkles"></i>Lovart</a>
+                <a href="https://chatgpt.com/c/f966519d-de70-4b75-99d0-ce8cd451dcdb" target="_blank" class="link-item"><i class="fa-solid fa-brain"></i>chatgpt</a>
+                <a href="https://jimeng.jianying.com/ai-tool/home" target="_blank" class="link-item"><i class="fa-solid fa-wand-magic"></i>即梦</a>
+                <a href="https://chat.deepseek.com/sign_in" target="_blank" class="link-item"><i class="fa-solid fa-brain-circuit"></i>deepseek</a>
+                <a href="https://www.midjourney.com/explore?tab=video_top" target="_blank" class="link-item"><i class="fa-solid fa-image-portrait"></i>Mj</a>
+                <a href="https://www.liblibai.com" target="_blank" class="link-item"><i class="fa-solid fa-microchip"></i>LiblibAI</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 字体网站 -->
+    <div class="category-group">
+        <div class="category-card cat3">
+            <h2 class="category-title"><i class="fa-solid fa-font"></i>字体网站</h2>
+            <div class="link-grid">
+                <a href="https://wenyue.cn" target="_blank" class="link-item"><i class="fa-solid fa-text-height"></i>文悦字库</a>
+                <a href="https://izihun.com" target="_blank" class="link-item"><i class="fa-solid fa-b"></i>字魂网</a>
+                <a href="https://www.shejidt.com" target="_blank" class="link-item"><i class="fa-solid fa-font-awesome"></i>SHEJIDT-字体</a>
+                <a href="https://www.souziti.com" target="_blank" class="link-item"><i class="fa-solid fa-magnifying-glass-chart"></i>字体识别</a>
+                <a href="https://font.doany.cn" target="_blank" class="link-item"><i class="fa-solid fa-certificate"></i>免费可商用字体</a>
+                <a href="https://www.fonts.net.cn" target="_blank" class="link-item"><i class="fa-solid fa-typewriter"></i>字体天下</a>
+                <a href="https://www.maoken.com/all-fonts" target="_blank" class="link-item"><i class="fa-solid fa-italic"></i>猫啃网</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 辅助工具 -->
+    <div class="category-group">
+        <div class="category-card cat4">
+            <h2 class="category-title"><i class="fa-solid fa-wrench"></i>辅助工具</h2>
+            <div class="link-grid">
+                <a href="https://www.freeconvert.com/zh" target="_blank" class="link-item"><i class="fa-solid fa-exchange-alt"></i>文件转换器</a>
+                <a href="http://hao.199it.com" target="_blank" class="link-item"><i class="fa-solid fa-database"></i>大数据导航</a>
+                <a href="https://fanyi.pdf365.cn/?agent=zhihu" target="_blank" class="link-item"><i class="fa-solid fa-language"></i>福昕翻译</a>
+                <a href="https://zhuanlan.zhihu.com/p/106521744" target="_blank" class="link-item"><i class="fa-solid fa-book-open"></i>设计类英文术语</a>
+                <a href="https://coolors.co" target="_blank" class="link-item"><i class="fa-solid fa-palette"></i>调色生成</a>
+                <a href="https://hao.shejidaren.com/index.html" target="_blank" class="link-item"><i class="fa-solid fa-star"></i>设计导航</a>
+                <a href="https://www.ilovepdf.com/zh-cn" target="_blank" class="link-item"><i class="fa-solid fa-file-pdf"></i>iLovePDF</a>
+                <a href="https://www.qtccolor.com/secaiku/" target="_blank" class="link-item"><i class="fa-solid fa-droplet"></i>在线色号色彩查询</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 视频相关 -->
+    <div class="category-group">
+        <div class="category-card cat5">
+            <h2 class="category-title"><i class="fa-solid fa-video"></i>视频相关</h2>
+            <div class="link-grid">
+                <a href="https://www.vjshi.com" target="_blank" class="link-item"><i class="fa-solid fa-video"></i>光厂(VJ师网)</a>
+                <a href="https://cupfox.love" target="_blank" class="link-item"><i class="fa-solid fa-play"></i>茶杯狐 Cupfox</a>
+                <a href="https://www.keke1.app" target="_blank" class="link-item"><i class="fa-solid fa-tv"></i>可可影视</a>
+                <a href="https://www.youtube.com" target="_blank" class="link-item"><i class="fa-brands fa-youtube"></i>YouTube</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 图书网站 -->
+    <div class="category-group">
+        <div class="category-card cat6">
+            <h2 class="category-title"><i class="fa-solid fa-book"></i>图书网站</h2>
+            <div class="link-grid">
+                <a href="https://zh.z-library.sk" target="_blank" class="link-item"><i class="fa-solid fa-book-open-reader"></i>Z-Library</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 案例网站 -->
+    <div class="category-group">
+        <div class="category-card cat7">
+            <h2 class="category-title"><i class="fa-solid fa-lightbulb"></i>案例网站</h2>
+            <div class="link-grid">
+                <a href="https://socialbeta.com" target="_blank" class="link-item"><i class="fa-solid fa-newspaper"></i>SocialBeta</a>
+                <a href="https://theinspirationgrid.com/category/design/" target="_blank" class="link-item"><i class="fa-solid fa-gem"></i>平面设计灵感</a>
+                <a href="https://www.artstation.com/learning" target="_blank" class="link-item"><i class="fa-solid fa-paintbrush"></i>ArtStation-学习</a>
+                <a href="https://www.lofter.com/front/login" target="_blank" class="link-item"><i class="fa-solid fa-paint-roller"></i>LOFTER (乐乎)</a>
+                <a href="https://www.zcool.com.cn/discover" target="_blank" class="link-item"><i class="fa-solid fa-vector-square"></i>站酷ZCOOL</a>
+                <a href="https://www.digitaling.com" target="_blank" class="link-item"><i class="fa-solid fa-bullhorn"></i>数英网</a>
+                <a href="https://www.pinterest.com" target="_blank" class="link-item"><i class="fa-brands fa-pinterest"></i>Pinterest</a>
+                <a href="https://huaban.com/follow" target="_blank" class="link-item"><i class="fa-solid fa-flower"></i>花瓣</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 样机 -->
+    <div class="category-group">
+        <div class="category-card cat8">
+            <h2 class="category-title"><i class="fa-solid fa-box"></i>样机</h2>
+            <div class="link-grid">
+                <a href="https://www.minimalmockups.com" target="_blank" class="link-item"><i class="fa-solid fa-mobile-screen-button"></i>样机</a>
+                <a href="https://mockup.sitapix.com" target="_blank" class="link-item"><i class="fa-solid fa-laptop"></i>西田样机</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 学习 -->
+    <div class="category-group">
+        <div class="category-card cat9">
+            <h2 class="category-title"><i class="fa-solid fa-graduation-cap"></i>学习</h2>
+            <div class="link-grid">
+                <a href="https://huke88.com" target="_blank" class="link-item"><i class="fa-solid fa-school"></i>虎课网-学习软件</a>
+                <a href="https://www.uisdc.com" target="_blank" class="link-item"><i class="fa-solid fa-book-open"></i>优设网</a>
+            </div>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
