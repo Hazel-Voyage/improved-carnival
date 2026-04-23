@@ -10,133 +10,152 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Microsoft YaHei", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
+
         body {
-            background-color: #f9fafb;
-            padding: 60px 24px;
+            background: #f9fafb;
+            display: flex;
+            min-height: 100vh;
         }
-        .container {
-            max-width: 1080px;
-            margin: 0 auto;
+
+        /* 左侧导航 —— 永久显示，不会消失 */
+        .sidebar {
+            width: 260px;
+            background: #ffffff;
+            box-shadow: 0 0 12px rgba(0,0,0,0.05);
+            padding: 40px 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            display: block !important;
         }
-        .site-header {
+
+        .sidebar h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 30px;
             text-align: center;
-            margin-bottom: 60px;
-        }
-        .site-title {
-            font-size: 42px;
-            font-weight: 600;
             color: #111827;
-            margin-bottom: 8px;
         }
-        .site-desc {
-            font-size: 17px;
-            color: #6b7280;
+
+        .nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
-        .category-group {
-            margin-bottom: 32px;
+
+        .nav-item {
+            padding: 14px 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #374151;
+            text-decoration: none;
         }
+
+        .nav-item:hover {
+            background: #f3f4f6;
+        }
+
+        .nav-item i {
+            width: 16px;
+            text-align: center;
+        }
+
+        /* 右侧内容 */
+        .content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            scroll-margin-top: 30px;
+        }
+
         .category-card {
             border-radius: 20px;
             padding: 32px;
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: 0.2s;
         }
-        .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
+
         .category-title {
             font-size: 22px;
             font-weight: 600;
             margin-bottom: 24px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
+
         .link-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 14px;
         }
+
         .link-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 14px 18px;
+            gap: 10px;
+            padding: 13px 16px;
             border-radius: 12px;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 15px;
             transition: 0.2s;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         .link-item:hover {
             background: rgba(255,255,255,0.35);
         }
-        .link-item i {
-            font-size: 16px;
-            width: 18px;
-            text-align: center;
-        }
 
-        /* 每个分类 自定义颜色 */
-        .cat1 { background:#e0f2fe; color:#0369a1; }
-        .cat1 .link-item { color:#0369a1; }
-        .cat1 .link-item i { color:#0369a1; }
+        /* 分类颜色 */
+        .cat1 { background:#e0f7fa; color:#006064; }
+        .cat2 { background:#fce4ec; color:#880e4f; }
+        .cat3 { background:#fff3e0; color:#ef6c00; }
+        .cat4 { background:#e8f5e8; color:#2e7d32; }
+        .cat5 { background:#e3f2fd; color:#1565c0; }
+        .cat6 { background:#f3e5f5; color:#7b1fa2; }
+        .cat7 { background:#fff8e1; color:#fbc02d; }
+        .cat8 { background:#ede7f6; color:#4527a0; }
+        .cat9 { background:#ffebee; color:#c62828; }
 
-        .cat2 { background:#f0f9ff; color:#0e7490; }
-        .cat2 .link-item { color:#0e7490; }
-        .cat2 .link-item i { color:#0e7490; }
-
-        .cat3 { background:#fdf4ff; color:#a21caf; }
-        .cat3 .link-item { color:#a21caf; }
-        .cat3 .link-item i { color:#a21caf; }
-
-        .cat4 { background:#f0fdf4; color:#0f766e; }
-        .cat4 .link-item { color:#0f766e; }
-        .cat4 .link-item i { color:#0f766e; }
-
-        .cat5 { background:#fffbeb; color:#b45309; }
-        .cat5 .link-item { color:#b45309; }
-        .cat5 .link-item i { color:#b45309; }
-
-        .cat6 { background:#fef2f2; color:#be123c; }
-        .cat6 .link-item { color:#be123c; }
-        .cat6 .link-item i { color:#be123c; }
-
-        .cat7 { background:#f5f3ff; color:#6d28d9; }
-        .cat7 .link-item { color:#6d28d9; }
-        .cat7 .link-item i { color:#6d28d9; }
-
-        .cat8 { background:#ecfeff; color:#155e75; }
-        .cat8 .link-item { color:#155e75; }
-        .cat8 .link-item i { color:#155e75; }
-
-        .cat9 { background:#f8fafc; color:#1e293b; }
-        .cat9 .link-item { color:#1e293b; }
-        .cat9 .link-item i { color:#1e293b; }
-
-        @media (max-width:640px) {
-            .link-grid { grid-template-columns: 1fr; }
-            .site-title { font-size:32px; }
-            .category-card { padding:24px; }
-        }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <header class="site-header">
-        <h1 class="site-title">设计嘉年华</h1>
-        <p class="site-desc">常用案例·素材·工具资源合集</p>
-    </header>
+<!-- 左侧竖排导航 -->
+<div class="sidebar">
+    <h1>设计嘉年华</h1>
+    <div class="nav-list">
+        <a href="#cat1" class="nav-item"><i class="fa-solid fa-images"></i>素材网站</a>
+        <a href="#cat2" class="nav-item"><i class="fa-solid fa-robot"></i>智能体</a>
+        <a href="#cat3" class="nav-item"><i class="fa-solid fa-font"></i>字体网站</a>
+        <a href="#cat4" class="nav-item"><i class="fa-solid fa-wrench"></i>辅助工具</a>
+        <a href="#cat5" class="nav-item"><i class="fa-solid fa-video"></i>视频相关</a>
+        <a href="#cat6" class="nav-item"><i class="fa-solid fa-book"></i>图书网站</a>
+        <a href="#cat7" class="nav-item"><i class="fa-solid fa-lightbulb"></i>案例网站</a>
+        <a href="#cat8" class="nav-item"><i class="fa-solid fa-box"></i>样机</a>
+        <a href="#cat9" class="nav-item"><i class="fa-solid fa-graduation-cap"></i>学习</a>
+    </div>
+</div>
 
-    <!-- 素材网站 -->
-    <div class="category-group">
+<!-- 右侧内容 -->
+<div class="content">
+
+    <div id="cat1" class="section">
         <div class="category-card cat1">
             <h2 class="category-title"><i class="fa-solid fa-images"></i>素材网站</h2>
             <div class="link-grid">
@@ -151,24 +170,22 @@
         </div>
     </div>
 
-    <!-- 智能体 -->
-    <div class="category-group">
+    <div id="cat2" class="section">
         <div class="category-card cat2">
             <h2 class="category-title"><i class="fa-solid fa-robot"></i>智能体</h2>
             <div class="link-grid">
                 <a href="https://www.doubao.com/chat" target="_blank" class="link-item"><i class="fa-solid fa-robot"></i>豆包</a>
                 <a href="https://www.lovart.ai/zh/home?ls=1" target="_blank" class="link-item"><i class="fa-solid fa-wand-magic-sparkles"></i>Lovart</a>
-                <a href="https://chatgpt.com/c/f966519d-de70-4b75-99d0-ce8cd451dcdb" target="_blank" class="link-item"><i class="fa-solid fa-brain"></i>chatgpt</a>
-                <a href="https://jimeng.jianying.com/ai-tool/home" target="_blank" class="link-item"><i class="fa-solid fa-wand-magic"></i>即梦</a>
-                <a href="https://chat.deepseek.com/sign_in" target="_blank" class="link-item"><i class="fa-solid fa-brain-circuit"></i>deepseek</a>
-                <a href="https://www.midjourney.com/explore?tab=video_top" target="_blank" class="link-item"><i class="fa-solid fa-image-portrait"></i>Mj</a>
+                <a href="https://chatgpt.com" target="_blank" class="link-item"><i class="fa-solid fa-brain"></i>ChatGPT</a>
+                <a href="https://jimeng.jianying.com" target="_blank" class="link-item"><i class="fa-solid fa-wand-magic"></i>即梦</a>
+                <a href="https://chat.deepseek.com" target="_blank" class="link-item"><i class="fa-solid fa-brain-circuit"></i>DeepSeek</a>
+                <a href="https://www.midjourney.com" target="_blank" class="link-item"><i class="fa-solid fa-image-portrait"></i>Midjourney</a>
                 <a href="https://www.liblibai.com" target="_blank" class="link-item"><i class="fa-solid fa-microchip"></i>LiblibAI</a>
             </div>
         </div>
     </div>
 
-    <!-- 字体网站 -->
-    <div class="category-group">
+    <div id="cat3" class="section">
         <div class="category-card cat3">
             <h2 class="category-title"><i class="fa-solid fa-font"></i>字体网站</h2>
             <div class="link-grid">
@@ -178,30 +195,28 @@
                 <a href="https://www.souziti.com" target="_blank" class="link-item"><i class="fa-solid fa-magnifying-glass-chart"></i>字体识别</a>
                 <a href="https://font.doany.cn" target="_blank" class="link-item"><i class="fa-solid fa-certificate"></i>免费可商用字体</a>
                 <a href="https://www.fonts.net.cn" target="_blank" class="link-item"><i class="fa-solid fa-typewriter"></i>字体天下</a>
-                <a href="https://www.maoken.com/all-fonts" target="_blank" class="link-item"><i class="fa-solid fa-italic"></i>猫啃网</a>
+                <a href="https://www.maoken.com" target="_blank" class="link-item"><i class="fa-solid fa-italic"></i>猫啃网</a>
             </div>
         </div>
     </div>
 
-    <!-- 辅助工具 -->
-    <div class="category-group">
+    <div id="cat4" class="section">
         <div class="category-card cat4">
             <h2 class="category-title"><i class="fa-solid fa-wrench"></i>辅助工具</h2>
             <div class="link-grid">
                 <a href="https://www.freeconvert.com/zh" target="_blank" class="link-item"><i class="fa-solid fa-exchange-alt"></i>文件转换器</a>
                 <a href="http://hao.199it.com" target="_blank" class="link-item"><i class="fa-solid fa-database"></i>大数据导航</a>
-                <a href="https://fanyi.pdf365.cn/?agent=zhihu" target="_blank" class="link-item"><i class="fa-solid fa-language"></i>福昕翻译</a>
+                <a href="https://fanyi.pdf365.cn" target="_blank" class="link-item"><i class="fa-solid fa-language"></i>福昕翻译</a>
                 <a href="https://zhuanlan.zhihu.com/p/106521744" target="_blank" class="link-item"><i class="fa-solid fa-book-open"></i>设计类英文术语</a>
                 <a href="https://coolors.co" target="_blank" class="link-item"><i class="fa-solid fa-palette"></i>调色生成</a>
-                <a href="https://hao.shejidaren.com/index.html" target="_blank" class="link-item"><i class="fa-solid fa-star"></i>设计导航</a>
-                <a href="https://www.ilovepdf.com/zh-cn" target="_blank" class="link-item"><i class="fa-solid fa-file-pdf"></i>iLovePDF</a>
-                <a href="https://www.qtccolor.com/secaiku/" target="_blank" class="link-item"><i class="fa-solid fa-droplet"></i>在线色号色彩查询</a>
+                <a href="https://hao.shejidaren.com" target="_blank" class="link-item"><i class="fa-solid fa-star"></i>设计导航</a>
+                <a href="https://www.ilovepdf.com" target="_blank" class="link-item"><i class="fa-solid fa-file-pdf"></i>iLovePDF</a>
+                <a href="https://www.qtccolor.com" target="_blank" class="link-item"><i class="fa-solid fa-droplet"></i>在线色号色彩查询</a>
             </div>
         </div>
     </div>
 
-    <!-- 视频相关 -->
-    <div class="category-group">
+    <div id="cat5" class="section">
         <div class="category-card cat5">
             <h2 class="category-title"><i class="fa-solid fa-video"></i>视频相关</h2>
             <div class="link-grid">
@@ -213,8 +228,7 @@
         </div>
     </div>
 
-    <!-- 图书网站 -->
-    <div class="category-group">
+    <div id="cat6" class="section">
         <div class="category-card cat6">
             <h2 class="category-title"><i class="fa-solid fa-book"></i>图书网站</h2>
             <div class="link-grid">
@@ -223,25 +237,23 @@
         </div>
     </div>
 
-    <!-- 案例网站 -->
-    <div class="category-group">
+    <div id="cat7" class="section">
         <div class="category-card cat7">
             <h2 class="category-title"><i class="fa-solid fa-lightbulb"></i>案例网站</h2>
             <div class="link-grid">
                 <a href="https://socialbeta.com" target="_blank" class="link-item"><i class="fa-solid fa-newspaper"></i>SocialBeta</a>
-                <a href="https://theinspirationgrid.com/category/design/" target="_blank" class="link-item"><i class="fa-solid fa-gem"></i>平面设计灵感</a>
-                <a href="https://www.artstation.com/learning" target="_blank" class="link-item"><i class="fa-solid fa-paintbrush"></i>ArtStation-学习</a>
-                <a href="https://www.lofter.com/front/login" target="_blank" class="link-item"><i class="fa-solid fa-paint-roller"></i>LOFTER (乐乎)</a>
-                <a href="https://www.zcool.com.cn/discover" target="_blank" class="link-item"><i class="fa-solid fa-vector-square"></i>站酷ZCOOL</a>
+                <a href="https://theinspirationgrid.com" target="_blank" class="link-item"><i class="fa-solid fa-gem"></i>平面设计灵感</a>
+                <a href="https://www.artstation.com" target="_blank" class="link-item"><i class="fa-solid fa-paintbrush"></i>ArtStation-学习</a>
+                <a href="https://www.lofter.com" target="_blank" class="link-item"><i class="fa-solid fa-paint-roller"></i>LOFTER</a>
+                <a href="https://www.zcool.com.cn" target="_blank" class="link-item"><i class="fa-solid fa-vector-square"></i>站酷ZCOOL</a>
                 <a href="https://www.digitaling.com" target="_blank" class="link-item"><i class="fa-solid fa-bullhorn"></i>数英网</a>
                 <a href="https://www.pinterest.com" target="_blank" class="link-item"><i class="fa-brands fa-pinterest"></i>Pinterest</a>
-                <a href="https://huaban.com/follow" target="_blank" class="link-item"><i class="fa-solid fa-flower"></i>花瓣</a>
+                <a href="https://huaban.com" target="_blank" class="link-item"><i class="fa-solid fa-flower"></i>花瓣</a>
             </div>
         </div>
     </div>
 
-    <!-- 样机 -->
-    <div class="category-group">
+    <div id="cat8" class="section">
         <div class="category-card cat8">
             <h2 class="category-title"><i class="fa-solid fa-box"></i>样机</h2>
             <div class="link-grid">
@@ -251,8 +263,7 @@
         </div>
     </div>
 
-    <!-- 学习 -->
-    <div class="category-group">
+    <div id="cat9" class="section">
         <div class="category-card cat9">
             <h2 class="category-title"><i class="fa-solid fa-graduation-cap"></i>学习</h2>
             <div class="link-grid">
@@ -263,5 +274,6 @@
     </div>
 
 </div>
+
 </body>
 </html>
