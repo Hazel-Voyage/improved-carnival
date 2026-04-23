@@ -19,23 +19,33 @@
             min-height: 100vh;
         }
 
-        /* 左侧导航 —— 永久显示，不会消失 */
+        /* 左侧导航 */
         .sidebar {
             width: 260px;
             background: #ffffff;
             box-shadow: 0 0 12px rgba(0,0,0,0.05);
-            padding: 40px 20px;
+            padding: 30px 20px;
             position: fixed;
             height: 100vh;
             overflow-y: auto;
-            display: block !important;
         }
 
-        .sidebar h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 30px;
+        /* Logo区域 透明白底专用样式 */
+        .logo-box {
             text-align: center;
+            margin-bottom: 32px;
+        }
+        .logo-box img {
+            width: 90px;
+            height: auto;
+            background: transparent !important;
+            mix-blend-mode: normal;
+            display: block;
+            margin: 0 auto 12px;
+        }
+        .logo-title {
+            font-size: 20px;
+            font-weight: 700;
             color: #111827;
         }
 
@@ -120,7 +130,7 @@
             background: rgba(255,255,255,0.35);
         }
 
-        /* 分类颜色 */
+        /* 分类彩色卡片 */
         .cat1 { background:#e0f7fa; color:#006064; }
         .cat2 { background:#fce4ec; color:#880e4f; }
         .cat3 { background:#fff3e0; color:#ef6c00; }
@@ -130,15 +140,18 @@
         .cat7 { background:#fff8e1; color:#fbc02d; }
         .cat8 { background:#ede7f6; color:#4527a0; }
         .cat9 { background:#ffebee; color:#c62828; }
-
     </style>
 </head>
 
 <body>
-
-<!-- 左侧竖排导航 -->
+<!-- 左侧导航 + 你的透明Logo -->
 <div class="sidebar">
-    <h1>设计嘉年华</h1>
+    <div class="logo-box">
+        <!-- 你的透明白底Logo 直接用这张 -->
+        <img src="https://p3-flow-image-sign.byteimg.com/ocean-cloud-tos/9a0c2c149f8a40889f3d4d7d4e4c031c~tplv-a9rns2rl98-image.image" alt="设计嘉年华Logo">
+        <div class="logo-title">设计嘉年华</div>
+    </div>
+
     <div class="nav-list">
         <a href="#cat1" class="nav-item"><i class="fa-solid fa-images"></i>素材网站</a>
         <a href="#cat2" class="nav-item"><i class="fa-solid fa-robot"></i>智能体</a>
@@ -152,9 +165,8 @@
     </div>
 </div>
 
-<!-- 右侧内容 -->
+<!-- 右侧内容区 -->
 <div class="content">
-
     <div id="cat1" class="section">
         <div class="category-card cat1">
             <h2 class="category-title"><i class="fa-solid fa-images"></i>素材网站</h2>
@@ -210,7 +222,7 @@
                 <a href="https://zhuanlan.zhihu.com/p/106521744" target="_blank" class="link-item"><i class="fa-solid fa-book-open"></i>设计类英文术语</a>
                 <a href="https://coolors.co" target="_blank" class="link-item"><i class="fa-solid fa-palette"></i>调色生成</a>
                 <a href="https://hao.shejidaren.com" target="_blank" class="link-item"><i class="fa-solid fa-star"></i>设计导航</a>
-                <a href="https://www.ilovepdf.com" target="_blank" class="link-item"><i class="fa-solid fa-file-pdf"></i>iLovePDF</a>
+                <a href="https://www.ilovepdf.com/zh-cn" target="_blank" class="link-item"><i class="fa-solid fa-file-pdf"></i>iLovePDF</a>
                 <a href="https://www.qtccolor.com" target="_blank" class="link-item"><i class="fa-solid fa-droplet"></i>在线色号色彩查询</a>
             </div>
         </div>
@@ -272,7 +284,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 </body>
