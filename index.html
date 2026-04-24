@@ -124,23 +124,31 @@
             gap: 12px;
         }
         
-        /* 卡片强制正方形 + 居中样式 */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            width: 100%;
+            gap: 10px;
+        }
+        
+        /* 卡片强制正方形 + 居中 */
         .link-grid a {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            aspect-ratio: 1/1; /* 核心：正方形 */
-            text-decoration: none; /* 去掉下划线 */
-            padding: 8px;
+            aspect-ratio: 1/1; 
+            text-decoration: none;
+            padding: 4px;
+            font-size: 11px; 
         }
         
-        /* 卡片里的图标样式（可选优化） */
+        /* 图标适配 */
         .link-grid a i,
         .link-grid a img {
-            margin-bottom: 6px;
-            font-size: 24px;
+            margin-bottom: 3px;
+            font-size: 18px;
         }
 
         /* 正方形卡片 + 高透毛玻璃 */
