@@ -32,6 +32,9 @@
             position: fixed;
             height: 100vh;
             overflow-y: auto;
+            /* 渐变白色描边 + 发光效果 */
+            border:6px solid rgba(255,255,255,0.3);
+            box-shadow: 0 0 12px rgba(255,255,255,0.2);
         }
 
         .logo-title {
@@ -96,7 +99,7 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             /* 渐变白色描边 + 发光效果 */
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 6px solid rgba(255,255,255,0.3);
             box-shadow: 0 0 12px rgba(255,255,255,0.2);
         }
 
@@ -120,7 +123,7 @@
         .link-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            max-width: calc(150px * 6 + 16px * 5);
+            max-width: calc(100px * 8 + 16px * 5);
             gap: 16px;
         }
 
@@ -143,6 +146,9 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             gap: 10px;
+            /* 渐变白色描边 + 发光效果 */
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 0 12px rgba(255,255,255,0.2);
         }
 
         .link-item:hover {
