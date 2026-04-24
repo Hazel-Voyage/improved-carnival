@@ -13,31 +13,36 @@
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
         }
 
+        /* 全屏高级渐变背景 */
         body {
-            background: #f5f7fa;
+            background: linear-gradient(135deg, #9bb0da 0%, #617db6 50%, #183d8a 100%);
+            background-attachment: fixed;
             display: flex;
             min-height: 100vh;
         }
 
-        /* ========== 侧边栏 · 苹果极简风 ========== */
+        /* ========== 侧边栏 · 高透毛玻璃 ========== */
         .sidebar {
-            width: 210px;
-            background: #ffffff;
-            box-shadow: 0 0 12px rgba(0,0,0,0.04);
-            padding: 40px 20px;
+            width: 220px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 45px 20px;
             position: fixed;
             height: 100vh;
             overflow-y: auto;
         }
 
-        /* 主标题 · 高级设计感 */
         .logo-title {
-            font-size: 24px;
-            font-weight: 800;
+            font-size: 26px;
+            font-weight: 300;
             letter-spacing: 1px;
             text-align: center;
-            color: #111;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-list {
@@ -47,21 +52,21 @@
         }
 
         .nav-item {
-            padding: 14px 16px;
-            border-radius: 12px;
+            padding: 15px 16px;
+            border-radius: 14px;
             font-size: 15px;
             font-weight: 500;
-            color: #333;
+            color: white;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
         }
 
         .nav-item:hover {
-            background: #f0f0f2;
-            color: #0071e3;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
         }
 
         .nav-item i {
@@ -73,69 +78,82 @@
         /* ========== 内容区 ========== */
         .content {
             flex: 1;
-            margin-left: 210px;
+            margin-left: 220px;
             padding: 50px 40px;
         }
 
         .section {
-            margin-bottom: 44px;
+            margin-bottom: 50px;
         }
 
-        /* 苹果风卡片 */
+        /* 高透毛玻璃卡片 */
         .category-card {
-            padding: 32px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            transition: all 0.25s ease;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 24px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            /* 渐变白色描边 + 发光效果 */
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 0 12px rgba(255,255,255,0.2);
         }
 
         .category-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
         }
 
         /* 分类标题 */
         .category-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #111;
-            margin-bottom: 24px;
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
+        /* 一行最多 6 个，正方形 */
         .link-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            max-width: calc(150px * 6 + 16px * 5);
             gap: 16px;
         }
 
-        /* 链接按钮 · 高级极简 */
+        /* 正方形卡片 + 高透毛玻璃 */
         .link-item {
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 12px;
-            padding: 18px 20px;
-            border-radius: 14px;
-            font-size: 16px;
+            aspect-ratio: 1 / 1;
+            border-radius: 18px;
+            font-size: 15px;
             font-weight: 500;
             color: #111;
-            background: #fafafa;
             text-decoration: none;
-            transition: 0.2s ease;
+            transition: 0.3s ease;
+            text-align: center;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.50);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            gap: 10px;
         }
 
         .link-item:hover {
-            background: #f0f0f2;
-            color: #0071e3;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
 
-        .link-item i {
-            font-size: 18px;
-            color: #555;
+        .link-item span {
+            font-size: 24px;
         }
+
     </style>
 </head>
 
@@ -160,16 +178,16 @@
     <!-- 1 案例网站 -->
     <div id="cat1" class="section">
         <div class="category-card">
-            <h2 class="category-title"><i class="fa-solid fa-lightbulb"></i>案例网站</h2>
+            <h2 class="category-title">💡 案例网站</h2>
             <div class="link-grid">
-                <a href="https://socialbeta.com" target="_blank" class="link-item"><i class="fa-solid fa-newspaper"></i>SocialBeta</a>
-                <a href="https://theinspirationgrid.com" target="_blank" class="link-item"><i class="fa-solid fa-gem"></i>平面设计灵感</a>
-                <a href="https://www.artstation.com" target="_blank" class="link-item"><i class="fa-brands fa-artstation"></i>ArtStation</a>
-                <a href="https://www.lofter.com" target="_blank" class="link-item"><i class="fa-brands fa-squarespace"></i>LOFTER</a>
-                <a href="https://www.zcool.com.cn" target="_blank" class="link-item"><i class="fa-brands fa-simplyclosed"></i>站酷ZCOOL</a>
-                <a href="https://www.digitaling.com" target="_blank" class="link-item"><i class="fa-solid fa-bullhorn"></i>数英网</a>
-                <a href="https://www.pinterest.com" target="_blank" class="link-item"><i class="fa-brands fa-pinterest"></i>Pinterest</a>
-                <a href="https://huaban.com" target="_blank" class="link-item"><i class="fa-solid fa-leaf"></i>花瓣</a>
+                <a href="https://socialbeta.com" target="_blank" class="link-item"><span>📰</span>SocialBeta</a>
+                <a href="https://theinspirationgrid.com" target="_blank" class="link-item"><span>🎨</span>平面设计灵感</a>
+                <a href="https://www.artstation.com" target="_blank" class="link-item"><span>🎭</span>ArtStation</a>
+                <a href="https://www.lofter.com" target="_blank" class="link-item"><span>📝</span>LOFTER</a>
+                <a href="https://www.zcool.com.cn" target="_blank" class="link-item"><span>🔥</span>站酷ZCOOL</a>
+                <a href="https://www.digitaling.com" target="_blank" class="link-item"><span>📣</span>数英网</a>
+                <a href="https://www.pinterest.com" target="_blank" class="link-item"><span>🖼️</span>Pinterest</a>
+                <a href="https://huaban.com" target="_blank" class="link-item"><span>🌸</span>花瓣</a>
             </div>
         </div>
     </div>
@@ -177,15 +195,15 @@
     <!-- 2 智能体 -->
     <div id="cat2" class="section">
         <div class="category-card">
-            <h2 class="category-title"><i class="fa-solid fa-robot"></i>智能体</h2>
+            <h2 class="category-title">🤖 智能体</h2>
             <div class="link-grid">
-                <a href="https://www.doubao.com" target="_blank" class="link-item"><i class="fa-solid fa-robot"></i>豆包</a>
-                <a href="https://www.lovart.ai" target="_blank" class="link-item"><i class="fa-solid fa-wand-magic-sparkles"></i>Lovart</a>
-                <a href="https://chatgpt.com" target="_blank" class="link-item"><i class="fa-brands fa-openid"></i>ChatGPT</a>
-                <a href="https://jimeng.jianying.com" target="_blank" class="link-item"><i class="fa-brands fa-tiktok"></i>即梦</a>
-                <a href="https://chat.deepseek.com" target="_blank" class="link-item"><i class="fa-solid fa-brain"></i>DeepSeek</a>
-                <a href="https://www.midjourney.com" target="_blank" class="link-item"><i class="fa-brands fa-medium"></i>Midjourney</a>
-                <a href="https://www.liblibai.com" target="_blank" class="link-item"><i class="fa-solid fa-microchip"></i>LiblibAI</a>
+                <a href="https://www.doubao.com" target="_blank" class="link-item"><span>🤖</span>豆包</a>
+                <a href="https://www.lovart.ai" target="_blank" class="link-item"><span>✨</span>Lovart</a>
+                <a href="https://chatgpt.com" target="_blank" class="link-item"><span>🧠</span>ChatGPT</a>
+                <a href="https://jimeng.jianying.com" target="_blank" class="link-item"><span>🎬</span>即梦</a>
+                <a href="https://chat.deepseek.com" target="_blank" class="link-item"><span>🔍</span>DeepSeek</a>
+                <a href="https://www.midjourney.com" target="_blank" class="link-item"><span>🎨</span>Midjourney</a>
+                <a href="https://www.liblibai.com" target="_blank" class="link-item"><span>🧪</span>LiblibAI</a>
             </div>
         </div>
     </div>
@@ -193,15 +211,15 @@
     <!-- 3 字体网站 -->
     <div id="cat3" class="section">
         <div class="category-card">
-            <h2 class="category-title"><i class="fa-solid fa-font"></i>字体网站</h2>
+            <h2 class="category-title">🔤 字体网站</h2>
             <div class="link-grid">
-                <a href="https://wenyue.cn" target="_blank" class="link-item"><i class="fa-solid fa-text-height"></i>文悦字库</a>
-                <a href="https://izihun.com" target="_blank" class="link-item"><i class="fa-solid fa-font"></i>字魂网</a>
-                <a href="https://www.shejidt.com" target="_blank" class="link-item"><i class="fa-solid fa-font-awesome"></i>SHEJIDT-字体</a>
-                <a href="https://www.souziti.com" target="_blank" class="link-item"><i class="fa-solid fa-magnifying-glass"></i>字体识别</a>
-                <a href="https://font.doany.cn" target="_blank" class="link-item"><i class="fa-solid fa-certificate"></i>免费可商用字体</a>
-                <a href="https://www.fonts.net.cn" target="_blank" class="link-item"><i class="fa-solid fa-pen"></i>字体天下</a>
-                <a href="https://www.maoken.com" target="_blank" class="link-item"><i class="fa-solid fa-italic"></i>猫啃网</a>
+                <a href="https://wenyue.cn" target="_blank" class="link-item"><span>📜</span>文悦字库</a>
+                <a href="https://izihun.com" target="_blank" class="link-item"><span>✍️</span>字魂网</a>
+                <a href="https://www.shejidt.com" target="_blank" class="link-item"><span>🖋️</span>SHEJIDT-字体</a>
+                <a href="https://www.souziti.com" target="_blank" class="link-item"><span>🔍</span>字体识别</a>
+                <a href="https://font.doany.cn" target="_blank" class="link-item"><span>✅</span>免费可商用字体</a>
+                <a href="https://www.fonts.net.cn" target="_blank" class="link-item"><span>🖌️</span>字体天下</a>
+                <a href="https://www.maoken.com" target="_blank" class="link-item"><span>📃</span>猫啃网</a>
             </div>
         </div>
     </div>
@@ -209,15 +227,15 @@
     <!-- 4 素材网站 -->
     <div id="cat4" class="section">
         <div class="category-card">
-            <h2 class="category-title"><i class="fa-solid fa-images"></i>素材网站</h2>
+            <h2 class="category-title">🖼️ 素材网站</h2>
             <div class="link-grid">
-                <a href="https://unsplash.com" target="_blank" class="link-item"><i class="fa-brands fa-unsplash"></i>免费图片</a>
-                <a href="https://www.freepik.com" target="_blank" class="link-item"><i class="fa-brands fa-figma"></i>Freepik</a>
-                <a href="https://www.iconfont.cn" target="_blank" class="link-item"><i class="fa-brands fa-alipay"></i>iconfont 阿里图标</a>
-                <a href="https://pixabay.com/zh/" target="_blank" class="link-item"><i class="fa-solid fa-photo-film"></i>Pixabay</a>
-                <a href="https://www.58pic.com" target="_blank" class="link-item"><i class="fa-solid fa-image"></i>千图网</a>
-                <a href="https://lottiefiles.com" target="_blank" class="link-item"><i class="fa-brands fa-cloudflare"></i>LottieFiles</a>
-                <a href="https://www.vcg.com" target="_blank" class="link-item"><i class="fa-solid fa-camera"></i>视觉中国</a>
+                <a href="https://unsplash.com" target="_blank" class="link-item"><span>📷</span>免费图片</a>
+                <a href="https://www.freepik.com" target="_blank" class="link-item"><span>🎨</span>Freepik</a>
+                <a href="https://www.iconfont.cn" target="_blank" class="link-item"><span>🔘</span>阿里图标</a>
+                <a href="https://pixabay.com/zh/" target="_blank" class="link-item"><span>🎞️</span>Pixabay</a>
+                <a href="https://www.58pic.com" target="_blank" class="link-item"><span>🖼️</span>千图网</a>
+                <a href="https://lottiefiles.com" target="_blank" class="link-item"><span>⚡</span>LottieFiles</a>
+                <a href="https://www.vcg.com" target="_blank" class="link-item"><span>📸</span>视觉中国</a>
             </div>
         </div>
     </div>
@@ -225,17 +243,17 @@
     <!-- 5 辅助工具 -->
     <div id="cat5" class="section">
         <div class="category-card">
-            <h2 class="category-title"><i class="fa-solid fa-wrench"></i>辅助工具</h2>
+            <h2 class="category-title">🔧 辅助工具</h2>
             <div class="link-grid">
-                <a href="https://github.com" target="_blank" class="link-item"><i class="fa-brands fa-github"></i>GitHub</a>
-                <a href="https://www.freeconvert.com/zh" target="_blank" class="link-item"><i class="fa-solid fa-exchange-alt"></i>文件转换器</a>
-                <a href="http://hao.199it.com" target="_blank" class="link-item"><i class="fa-solid fa-database"></i>大数据导航</a>
-                <a href="https://fanyi.pdf365.cn" target="_blank" class="link-item"><i class="fa-solid fa-language"></i>福昕翻译</a>
-                <a href="https://zhuanlan.zhihu.com/p/106521744" target="_blank" class="link-item"><i class="fa-solid fa-book-open"></i>设计英文术语</a>
-                <a href="https://coolors.co" target="_blank" class="link-item"><i class="fa-solid fa-palette"></i>调色生成</a>
-                <a href="https://hao.shejidaren.com" target="_blank" class="link-item"><i class="fa-solid fa-star"></i>设计导航</a>
-                <a href="https://www.ilovepdf.com/zh-cn" target="_blank" class="link-item"><i class="fa-solid fa-file-pdf"></i>iLovePDF</a>
-                <a href="https://www.qtccolor.com" target="_blank" class="link-item"><i class="fa-solid fa-droplet"></i>在线色号查询</a>
+                <a href="https://github.com" target="_blank" class="link-item"><span>🐙</span>GitHub</a>
+                <a href="https://www.freeconvert.com/zh" target="_blank" class="link-item"><span>🔄</span>文件转换器</a>
+                <a href="http://hao.199it.com" target="_blank" class="link-item"><span>📊</span>大数据导航</a>
+                <a href="https://fanyi.pdf365.cn" target="_blank" class="link-item"><span>🌐</span>福昕翻译</a>
+                <a href="https://zhuanlan.zhihu.com/p/106521744" target="_blank" class="link-item"><span>📖</span>设计英文术语</a>
+                <a href="https://coolors.co" target="_blank" class="link-item"><span>🎨</span>调色生成</a>
+                <a href="https://hao.shejidaren.com" target="_blank" class="link-item"><span>⭐</span>设计导航</a>
+                <a href="https://www.ilovepdf.com/zh-cn" target="_blank" class="link-item"><span>📄</span>iLovePDF</a>
+                <a href="https://www.qtccolor.com" target="_blank" class="link-item"><span>🎨</span>在线色号查询</a>
             </div>
         </div>
     </div>
@@ -243,12 +261,12 @@
     <!-- 6 视频相关 -->
     <div id="cat6" class="section">
         <div class="category-card">
-            <h2 class="category-title"><i class="fa-solid fa-video"></i>视频相关</h2>
+            <h2 class="category-title">🎬 视频相关</h2>
             <div class="link-grid">
-                <a href="https://www.vjshi.com" target="_blank" class="link-item"><i class="fa-solid fa-video"></i>光厂(VJ师网)</a>
-                <a href="https://cupfox.love" target="_blank" class="link-item"><i class="fa-solid fa-play"></i>茶杯狐</a>
-                <a href="https://www.keke1.app" target="_blank" class="link-item"><i class="fa-solid fa-tv"></i>可可影视</a>
-                <a href="https://www.youtube.com" target="_blank" class="link-item"><i class="fa-brands fa-youtube"></i>YouTube</a>
+                <a href="https://www.vjshi.com" target="_blank" class="link-item"><span>🎥</span>光厂(VJ师网)</a>
+                <a href="https://cupfox.love" target="_blank" class="link-item"><span>▶️</span>茶杯狐</a>
+                <a href="https://www.keke1.app" target="_blank" class="link-item"><span>📺</span>可可影视</a>
+                <a href="https://www.youtube.com" target="_blank" class="link-item"><span>🎥</span>YouTube</a>
             </div>
         </div>
     </div>
@@ -256,9 +274,9 @@
     <!-- 7 图书网站 -->
     <div id="cat7" class="section">
         <div class="category-card">
-            <h2 class="category-title"><i class="fa-solid fa-book"></i>图书网站</h2>
+            <h2 class="category-title">📚 图书网站</h2>
             <div class="link-grid">
-                <a href="https://zh.z-library.sk" target="_blank" class="link-item"><i class="fa-solid fa-book-open"></i>Z-Library</a>
+                <a href="https://zh.z-library.sk" target="_blank" class="link-item"><span>📖</span>Z-Library</a>
             </div>
         </div>
     </div>
@@ -266,10 +284,10 @@
     <!-- 8 样机 -->
     <div id="cat8" class="section">
         <div class="category-card">
-            <h2 class="category-title"><i class="fa-solid fa-box"></i>样机</h2>
+            <h2 class="category-title">📦 样机</h2>
             <div class="link-grid">
-                <a href="https://www.minimalmockups.com" target="_blank" class="link-item"><i class="fa-solid fa-mobile-screen"></i>MinimalMockups</a>
-                <a href="https://mockup.sitapix.com" target="_blank" class="link-item"><i class="fa-solid fa-laptop"></i>西田样机</a>
+                <a href="https://www.minimalmockups.com" target="_blank" class="link-item"><span>📱</span>MinimalMockups</a>
+                <a href="https://mockup.sitapix.com" target="_blank" class="link-item"><span>💻</span>西田样机</a>
             </div>
         </div>
     </div>
@@ -277,10 +295,10 @@
     <!-- 9 学习 -->
     <div id="cat9" class="section">
         <div class="category-card">
-            <h2 class="category-title"><i class="fa-solid fa-graduation-cap"></i>学习</h2>
+            <h2 class="category-title">🎓 学习</h2>
             <div class="link-grid">
-                <a href="https://huke88.com" target="_blank" class="link-item"><i class="fa-solid fa-school"></i>虎课网</a>
-                <a href="https://www.uisdc.com" target="_blank" class="link-item"><i class="fa-solid fa-book-open"></i>优设网</a>
+                <a href="https://huke88.com" target="_blank" class="link-item"><span>🏫</span>虎课网</a>
+                <a href="https://www.uisdc.com" target="_blank" class="link-item"><span>📖</span>优设网</a>
             </div>
         </div>
     </div>
