@@ -32,15 +32,12 @@
             position: fixed;
             height: 100vh;
             overflow-y: auto;
-            /* 渐变白色描边 + 发光效果 */
-            border:6px solid rgba(255,255,255,0.3);
-            box-shadow: 0 0 12px rgba(255,255,255,0.2);
         }
 
         .logo-title {
-            font-size: 26px;
+            font-size: 30px;
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: -1px;
             text-align: center;
             margin-bottom: 45px;
             background: linear-gradient(135deg, #ffffff, #f0f0f0);
@@ -119,11 +116,11 @@
             gap: 10px;
         }
 
-        /* 一行最多 6 个，正方形 */
+        /* 一行最多 10 个，正方形 */
         .link-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            max-width: calc(100px * 8 + 16px * 5);
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            max-width: calc(80px * 10 + 4px * 7);
             gap: 16px;
         }
 
